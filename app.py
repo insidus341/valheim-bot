@@ -1,10 +1,10 @@
 from flask import Flask, Response, request
-import discord
+import bot
 
 app = Flask(__name__)
 ssl_context=('/etc/letsencrypt/live/www.jamesearl.co.uk/fullchain.pem', '/etc/letsencrypt/live/www.jamesearl.co.uk/privkey.pem')
 
-bot = discord
+discord_bot = bot
 
 @app.route('/discord/valheim/webhook', methods=['POST'])
 def hello():
