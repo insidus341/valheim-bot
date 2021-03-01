@@ -60,12 +60,12 @@ async def on_message(message):
             await message.channel.send(msg)
 
 def join():
-    message = f"You can join the server by copying this IP `{SERVER_IP}` and pasting (ctrl + v) in game. For the best experience, we recommend having Valheim Plus installed. Type `!mods` for instructions on how to install Valheim Plus."
+    message = f"You can join the server by copying this IP `{SERVER_IP}` and pasting (ctrl + v) in game. Password is `Discord30` For the best experience, we recommend having Valheim Plus installed. Type `!mods` for instructions on how to install Valheim Plus."
     return message
 
 def valheim_plus():
     message = "Valheim Plus can be installed from here: https://github.com/valheimPlus/ValheimPlus/releases/download/0.9/WindowsClient.zip \n\n"
-    message = message + "Locate your game folder, go into steam and \nRight click the valheim game in your steam library \n\"Go to Manage\" -> \"Browse local files\"\nUnzip the contents of WindowsClient.zip into the Valheim root folder\n\n"
+    message = message + "Locate your game folder: go into steam and \nRight click the valheim game in your steam library \n\"Go to Manage\" -> \"Browse local files\"\nUnzip the contents of WindowsClient.zip into the Valheim root folder\n\n"
     message = message + "In the same directory, browser to /BepInEx/config and edit valheim_plus.cfg \nChange `enforceMod=true` to `enforceMod=false`."
     return message          
 
