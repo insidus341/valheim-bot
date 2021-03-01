@@ -1,10 +1,11 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 app = Flask(__name__)
 ssl_context=('/etc/letsencrypt/live/www.jamesearl.co.uk/fullchain.pem', '/etc/letsencrypt/live/www.jamesearl.co.uk/privkey.pem')
 
 
 @app.route('/discord/valheim/webhook', methods=['POST'])
 def hello():
+    print(request.json)
     return Response(status=200)
 
 if __name__ == '__main__':
