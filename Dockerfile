@@ -1,6 +1,6 @@
-FROM python:3.9.2-alpine3.13
+FROM python:3.9.2-buster
 
-RUN apt install python3-pip --no-cache
+RUN apt-get update && apt install python3-pip -y
 
 COPY app /app
 
