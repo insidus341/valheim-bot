@@ -6,4 +6,5 @@ services:
       - DISCORD_TOKEN=
       - SERVER_IP=
       - SERVER_PORT=2457
+      - SERVER_PASSWORD=
       - VALHEIM_PLUS=1
