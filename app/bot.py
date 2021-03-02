@@ -19,9 +19,10 @@ commands = [
     "!players - returns the current player count"
 ]
 
-if VALHEIM_PLUS is 1:
+if VALHEIM_PLUS == 1:
     commands.append("!mods - returns instructions on configuring Valheim Plus")
 
+print(commands)
 
 client = discord.Client()
 @client.event
