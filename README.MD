@@ -23,8 +23,6 @@ These instructions will get you the Valheim server bot running on your Valheim s
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 ```
 Docker
 Git
@@ -35,8 +33,11 @@ A Discord bot
 ### Installing
 
 A Valheim dedicated server is needed. You can use one of these projects to bring a server online:
+
 https://github.com/lloesche/valheim-server-docker
+
 https://github.com/mbround18/valheim-docker
+
 
 You need to create Discord bot with `Send Messages` and `Read Message History` permissions. Full instructions can be found here: https://www.freecodecamp.org/news/create-a-discord-bot-with-python/
 
@@ -46,7 +47,7 @@ DISCORD_TOKEN = The Discord token for your Discord bot
 SERVER_IP = The IP address of the Valheim server
 SERVER_PORT = The Port of the Valheim server (default is 2457)
 SERVER_PASSWORD = The password for the Valheim server (leave blank if there is no password)
-VALHEIM_PLUS = If Valheim Plus is not enabled, change to 0
+VALHEIM_PLUS = Change to 0 if Valheim Plus is not installed 
 ```
 
 ## Built With
