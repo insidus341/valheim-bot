@@ -4,12 +4,6 @@ import json
 import os
 
 # https://python-valve.readthedocs.io/en/latest/source.html
-from dotenv import load_dotenv
-
-load_dotenv('.env')
-SERVER_IP = os.getenv('SERVER_IP')
-SERVER_PORT = os.getenv('SERVER_PORT')
-SERVER_ADDRESS = (SERVER_IP, int(SERVER_PORT))
 
 # with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
 #     info = server.info()
@@ -20,7 +14,7 @@ SERVER_ADDRESS = (SERVER_IP, int(SERVER_PORT))
 #     players_online = players['players']
     
 
-def get_server_status():
+def get_server_status(SERVER_IP, SERVER_PORT):
     url = f"http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr={SERVER_IP}:{SERVER_PORT}&format=json"
     response = requests.get(url)
     data = response.json()['response']
@@ -47,7 +41,7 @@ def get_server_status():
     #     server_name = info['server_name']
     #     player_count = info['player_count']
 
-def get_players():
+def get_players(SERVER_ADDRESS):
     try:
         with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
             info = server.info()

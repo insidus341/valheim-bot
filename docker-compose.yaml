@@ -1,0 +1,9 @@
+version: "3"
+services: 
+  valheim: 
+    image: insidus341/valheimbot:latest
+    environment: 
+      - DISCORD_TOKEN=
+      - SERVER_IP=
+      - SERVER_PORT=2457
+      - VALHEIM_PLUS=1
