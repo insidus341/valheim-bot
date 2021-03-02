@@ -1,10 +1,10 @@
-# Project Title
+# Valheim Server bot for Discord
 
-Valheim server bot for Discord
+Get the state of your Valheim Server through Discord messages
 
 ## What does it do?
 
-The Discord bot listens to the following messages:
+The Discord bot listens and responds to the following messages:
 
 `!status` - returns "Server is Online/Offline"
 
