@@ -1,7 +1,7 @@
 version: "3"
 services: 
   valheim: 
-    image: insidus341/valheimbot:latest
+    image: insidus341/valheim-discord-bot:latest
     environment: 
       - DISCORD_TOKEN=
       - SERVER_IP=
