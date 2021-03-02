@@ -14,7 +14,7 @@ commands = [
     "!help - shows this menu",
     "!join - information on how to join",
     "!status - returns the server status",
-    "!players - returns the current player count"
+    "!players - returns the current player count",
     "!mods - returns instructions on configuring Valheim Plus"
 ]
 
