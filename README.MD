@@ -5,11 +5,17 @@ Valheim server bot for Discord
 ## What does it do?
 
 The Discord bot listens to the following messages:
+
 `!status` - returns "Server is Online/Offline"
+
 `!players` - returns "There are ### players connected"
+
 `!join` - returns "You can join the server by copying this IP 0.0.0.0 and pasting (ctrl + v) in game. Password is mysecretpass."
+
 `!mods` - only active if `VALHEIM_PLUS` = 1 - provides instructions on how to install Valheim plus on a client
-`!help` - shows this menus
+
+`!help` - shows this menu
+
 
 ## Getting Started
 
