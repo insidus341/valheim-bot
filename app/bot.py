@@ -4,13 +4,13 @@ from server_stats import get_server_status, get_players
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 SERVER_IP = os.getenv('SERVER_IP')
-SERVER_PORT = os.getenv('SERVER_PORT')
-VALHEIM_PLUS = os.getenv('VALHEIM_PLUS')
+SERVER_PORT = int(os.getenv('SERVER_PORT'))
+VALHEIM_PLUS = int(os.getenv('VALHEIM_PLUS'))
 
 if DISCORD_TOKEN is None or SERVER_IP is None or SERVER_PORT is None:
     exit(1)
 
-SERVER_ADDRESS = (SERVER_IP, int(SERVER_PORT))
+SERVER_ADDRESS = (SERVER_IP, SERVER_PORT)
 
 commands = [
     "!help - shows this menu",
