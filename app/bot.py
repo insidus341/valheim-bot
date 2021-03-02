@@ -70,7 +70,7 @@ async def on_message(message):
 def join():
     message = f"You can join the server by copying this IP `{SERVER_IP}` and pasting (ctrl + v) in game. Password is `{SERVER_PASSWORD}`."
     if VALHEIM_PLUS:
-        message = message + "For the best experience, we recommend having Valheim Plus installed. Type `!mods` for instructions on how to install Valheim Plus."
+        message = message + " For the best experience, we recommend having Valheim Plus installed. Type `!mods` for instructions on how to install Valheim Plus."
     
     return message
 
