@@ -4,6 +4,7 @@ from server_stats import get_server_status, get_players
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 SERVER_IP = os.getenv('SERVER_IP')
+SERVER_DOMAIN = os.getenv('SERVER_DOMAIN')
 SERVER_PORT = int(os.getenv('SERVER_PORT'))
 SERVER_PASSWORD = os.getenv('SERVER_PASSWORD')
 VALHEIM_PLUS = int(os.getenv('VALHEIM_PLUS'))
@@ -68,7 +69,7 @@ async def on_message(message):
             await message.channel.send(msg)
 
 def join():
-    message = f"You can join the server by copying this IP `{SERVER_IP}` and pasting (ctrl + v) in game. Password is `{SERVER_PASSWORD}`."
+    message = f"You can join the server by copying this domain `{SERVER_DOMAIN}` and pasting (ctrl + v) in game. Password is `{SERVER_PASSWORD}`."
     if VALHEIM_PLUS:
         message = message + " For the best experience, we recommend having Valheim Plus installed. Type `!mods` for instructions on how to install Valheim Plus."
     
