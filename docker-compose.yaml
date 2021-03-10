@@ -7,4 +7,5 @@ services:
       - SERVER_IP=
       - SERVER_PORT=2457
       - SERVER_PASSWORD=
+      - SERVER_DOMAIN=
       - VALHEIM_PLUS=1
