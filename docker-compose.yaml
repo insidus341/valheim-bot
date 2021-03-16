@@ -5,6 +5,7 @@ services:
     image: insidus341/valheim-discord-bot:latest
     env_file: 
      - .bot.env
+     - .influxdb.env
     networks:
       sites:
         ipv4_address: 172.31.0.2
