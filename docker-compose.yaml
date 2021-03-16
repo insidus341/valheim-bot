@@ -16,18 +16,18 @@ services:
       sites:
         ipv4_address: 172.31.0.2
   
-  redis:
-    container_name: valheim-bot-redis
+  influxdb:
+    container_name: valheim-bot-influxdb
     image: docker.io/influxdb:1.8.4
     env_file:
-      - .redis.env
+      - .influxdb.env
     # environment:
     #   - INFLUXDB_DATABASE=
     #   - INFLUXDB_USERNAME=
     #   - INFLUXDB_PASSWORD=
     #   - INFLUXDB_HOST=
     volumes:
-      - ./data/mariadb/db:/var/lib/mysql
+      - ./data/influxdb:/var/lib/influxdb
     networks:
       sites:
         ipv4_address: 172.31.0.3
