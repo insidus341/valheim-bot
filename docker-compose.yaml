@@ -5,13 +5,6 @@ services:
     image: insidus341/valheim-discord-bot:latest
     env_file: 
      - .bot.env
-    # environment: 
-    #   - DISCORD_TOKEN=
-    #   - SERVER_IP=
-    #   - SERVER_PORT=2457
-    #   - SERVER_PASSWORD=
-    #   - SERVER_DOMAIN=
-    #   - VALHEIM_PLUS=1
     networks:
       sites:
         ipv4_address: 172.31.0.2
@@ -21,13 +14,10 @@ services:
     image: docker.io/influxdb:1.8.4
     env_file:
       - .influxdb.env
-    # environment:
-    #   - INFLUXDB_DATABASE=
-    #   - INFLUXDB_USERNAME=
-    #   - INFLUXDB_PASSWORD=
-    #   - INFLUXDB_HOST=
     volumes:
       - ./data/influxdb:/var/lib/influxdb
+    ports:
+      - 8086:8086
     networks:
       sites:
         ipv4_address: 172.31.0.3
