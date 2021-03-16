@@ -24,7 +24,7 @@ def get_server_status(SERVER_ADDRESS):
     servers = data['servers']
 
     if success is False:
-        return None
+        return 0
 
     if len(servers) >= 1:
         for server in servers:
@@ -32,11 +32,6 @@ def get_server_status(SERVER_ADDRESS):
                 return 1
         
     return 0
-    print(response)
-    # with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
-    #     info = server.info()
-    #     server_name = info['server_name']
-    #     player_count = info['player_count']
 
 def get_players(SERVER_ADDRESS):
     try:
