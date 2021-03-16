@@ -45,4 +45,4 @@ def get_players(SERVER_ADDRESS):
             return player_count
     
     except:
-        return None
+        return 0

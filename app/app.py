@@ -22,13 +22,13 @@ if DISCORD_TOKEN is None or SERVER_IP is None or SERVER_PORT is None:
     exit(1)
 
 def run():
-    # pbot = Process(target=start_bot)
-    # pss = Process(target=start_statistics)
+    pbot = Process(target=start_bot)
+    pss = Process(target=start_statistics)
 
-    # pbot.start()
-    # pss.start()
+    pbot.start()
+    pss.start()
 
-    start_statistics()
+    # start_statistics()
 
 
 def start_bot():
