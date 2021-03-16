@@ -1,11 +1,41 @@
 version: "3"
 services: 
   valheim: 
+    container_name: valheim-bot
     image: insidus341/valheim-discord-bot:latest
-    environment: 
-      - DISCORD_TOKEN=
-      - SERVER_IP=
-      - SERVER_PORT=2457
-      - SERVER_PASSWORD=
-      - SERVER_DOMAIN=
-      - VALHEIM_PLUS=1
+    env_file: 
+     - .bot.env
+    # environment: 
+    #   - DISCORD_TOKEN=
+    #   - SERVER_IP=
+    #   - SERVER_PORT=2457
+    #   - SERVER_PASSWORD=
+    #   - SERVER_DOMAIN=
+    #   - VALHEIM_PLUS=1
+    networks:
+      sites:
+        ipv4_address: 172.31.0.2
+  
+  redis:
+    container_name: valheim-bot-redis
+    image: docker.io/influxdb:1.8.4
+    env_file:
+      - .redis.env
+    # environment:
+    #   - INFLUXDB_DATABASE=
+    #   - INFLUXDB_USERNAME=
+    #   - INFLUXDB_PASSWORD=
+    #   - INFLUXDB_HOST=
+    volumes:
+      - ./data/mariadb/db:/var/lib/mysql
+    networks:
+      sites:
+        ipv4_address: 172.31.0.3
+
+networks:
+  sites:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
+          gateway: 172.31.0.1
