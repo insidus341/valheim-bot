@@ -25,6 +25,7 @@ services:
   influxdb:
     container_name: valheim-bot-influxdb
     image: docker.io/influxdb:1.8.4
+    restart: always
     env_file:
       - .influxdb.env
     volumes:
