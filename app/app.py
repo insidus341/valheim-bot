@@ -29,11 +29,10 @@ def run():
 
     # pbot.start()
     # pss.start()
-
-    if int(STATISTICS) == 1:
-        start_statistics()
-    else:
+    if STATISTICS is None:
         start_bot()
+    elif STATISTICS == "1":
+        start_statistics()
 
 def start_bot():
     bot = DiscordBot()
