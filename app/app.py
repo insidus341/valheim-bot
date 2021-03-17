@@ -18,18 +18,22 @@ INFLUXDB_HOST = os.getenv('INFLUXDB_HOST')
 INFLUXDB_PORT = os.getenv('INFLUXDB_PORT')
 INFLUXDB_DATABASE = os.getenv('INFLUXDB_DATABASE')
 
+STATISTICS = os.getenv('STATISTICS')
+
 if DISCORD_TOKEN is None or SERVER_IP is None or SERVER_PORT is None:
     exit(1)
 
 def run():
-    pbot = Process(target=start_bot)
-    pss = Process(target=start_statistics)
+    # pbot = Process(target=start_bot)
+    # pss = Process(target=start_statistics)
 
-    pbot.start()
-    pss.start()
+    # pbot.start()
+    # pss.start()
 
-    # start_statistics()
-
+    if STATISTICS == 1:
+        start_statistics()
+    else:
+        start_bot()
 
 def start_bot():
     bot = DiscordBot()
