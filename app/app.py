@@ -30,7 +30,7 @@ def run():
     # pbot.start()
     # pss.start()
 
-    if STATISTICS == 1:
+    if int(STATISTICS) == 1:
         start_statistics()
     else:
         start_bot()
