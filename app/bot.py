@@ -1,6 +1,9 @@
+from server_stats import get_server_status, get_players
+
 import os
 import discord
-from server_stats import get_server_status, get_players
+import requests_unixsocket
+import json
 
 class DiscordBot(discord.Client):
 
@@ -11,11 +14,12 @@ class DiscordBot(discord.Client):
         "!players - returns the current player count"
     ]
 
-    def init(self, SERVER_ADDRESS, SERVER_DOMAIN, SERVER_PASSWORD, VALHEIM_PLUS):
+    def init(self, SERVER_ADDRESS, SERVER_DOMAIN, SERVER_PASSWORD, VALHEIM_PLUS, DISCORD_ADMIN_USER):
         self.SERVER_ADDRESS = SERVER_ADDRESS
         self.SERVER_DOMAIN = SERVER_DOMAIN
         self.SERVER_PASSWORD = SERVER_PASSWORD
         self.VALHEIM_PLUS = VALHEIM_PLUS
+        self.DISCORD_ADMIN_USER = DISCORD_ADMIN_USER
 
         self._valeheim_plus_enabled()
 
@@ -66,6 +70,12 @@ class DiscordBot(discord.Client):
                 print("mods")
                 msg = self._valheim_plus()
                 await message.channel.send(msg)
+            
+            if message.content == '!restart':
+                sender = message.author.id
+                if str(sender) == self.DISCORD_ADMIN_USER:
+                    msg = self._restart_valheim_server()
+                    await message.channel.send(msg)
         
     def _join(self):
         message = f"You can join the server by copying this domain `{self.SERVER_DOMAIN}` and pasting (ctrl + v) in game. Password is `{self.SERVER_PASSWORD}`."
@@ -79,3 +89,36 @@ class DiscordBot(discord.Client):
         message = message + "Locate your game folder: go into steam and \nRight click the valheim game in your steam library \n\"Go to Manage\" -> \"Browse local files\"\nUnzip the contents of WindowsClient.zip into the Valheim root folder\n\n"
         message = message + "In the game directory, browse to /BepInEx/config and edit valheim_plus.cfg \nChange `enforceMod=true` to `enforceMod=false`."
         return message 
+
+    def _restart_valheim_server(self):
+        msg = ""
+        session = requests_unixsocket.Session()
+        containers = session.get('http+unix://%2Fvar%2Frun%2Fdocker.sock/containers/json').json()
+
+        id = None
+        image = None
+        
+        for container in containers:
+            try:
+                image = container['Image']
+
+                if image == "lloesche/valheim-server":
+                    id = container['Id']
+                    break
+            except:
+                pass
+
+        if id is None or image is None:
+            return "unable to restart server"
+        
+        restart = session.post('http+unix://%2Fvar%2Frun%2Fdocker.sock/containers/' + id + '/restart')
+        status_code = restart.status_code
+
+        if status_code == 204:
+            msg = "Valheim server has been restarted!"
+        else:
+            msg = "Unable to restart Valheim server"
+
+        return msg
+        
+
