@@ -10,7 +10,7 @@ services:
       sites:
         ipv4_address: 172.31.0.2
     
-  valheim-bot: 
+  valheim-statistics: 
     container_name: valheim-server-statistics
     image: insidus341/valheim-bot-statistics:latest
     restart: always
