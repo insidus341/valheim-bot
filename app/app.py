@@ -25,11 +25,6 @@ if DISCORD_TOKEN is None or SERVER_IP is None or SERVER_PORT is None:
     exit(1)
 
 def run():
-    # pbot = Process(target=start_bot)
-    # pss = Process(target=start_statistics)
-
-    # pbot.start()
-    # pss.start()
     if STATISTICS is None:
         start_bot()
     elif STATISTICS == "1":
