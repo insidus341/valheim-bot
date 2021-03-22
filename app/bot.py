@@ -9,7 +9,7 @@ import json
 # *********************
 
 CWD = os.getcwd()
-DISCORD_ADMIN_USERS = CWD + "/app/discord_admin_users.txt"
+DISCORD_ADMIN_USERS = CWD + "/discord_admin_users.txt"
 
 # *********************
 
@@ -49,7 +49,7 @@ class DiscordBot(discord.Client):
                 lines = fp.readlines()
             
             for line in lines:
-                self.discord_admin_users.append(str(line))
+                self.discord_admin_users.append(str(line.strip()))
     
     def _check_docker_sock_exists(self):
         if self._get_docker_containers():

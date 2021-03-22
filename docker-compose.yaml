@@ -5,17 +5,20 @@ services:
     image: insidus341/valheim-bot-statistics:latest
     restart: always
     env_file: 
-     - .bot.env
+     - .env
     networks:
       sites:
         ipv4_address: 172.31.0.2
+    volumes:
+      - ./discord_admin_users.txt:/app/discord_admin_users.txt
+      - /var/run/docker.sock:/var/run/docker.sock
     
   valheim-statistics: 
     container_name: valheim-server-statistics
     image: insidus341/valheim-bot-statistics:latest
     restart: always
     env_file: 
-     - .bot.env
+     - .env
     environment: 
       - STATISTICS=1
     networks:
