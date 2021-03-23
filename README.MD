@@ -1,8 +1,10 @@
-# Discord bot for your own Valheim Server
+# Valheim Server Management with a Discord Bot and Server Statistics stored in InfluxDB
 
-Get the state of your Valheim Server through Discord messages
+Get the state of your Valheim Server and restart your Valheim server through Discord messages. Store server Statistics in InfluxDB for ingress into Grafana. 
 
 ## What does it do?
+
+### Discord Bot
 
 The Discord bot listens and responds to the following messages:
 
@@ -16,8 +18,11 @@ The Discord bot listens and responds to the following messages:
 
   `!help` - shows this menu
 
-
 Allows specified servers admins to restart the Valheim server with the `!restart_server` command
+
+### Statistics
+
+Stores statistics about your Valheim server, such as the server availability (is it online?) and the player count. * Statistics can only be gathered from public Valheim servers and the statistics are pulled from Steam. 
 
 
 ## Getting Started
