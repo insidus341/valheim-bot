@@ -19,6 +19,8 @@ services:
     restart: always
     env_file: 
      - .stats.env
+    depends_on:
+      - "influxdb"
     networks:
       sites:
         ipv4_address: 172.31.0.4
