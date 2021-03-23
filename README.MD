@@ -85,6 +85,8 @@ volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 ```
 
+Start the containers with `docker-compose up -d`
+
 
 Once the above steps are complete you should see the `!restart_server` command in the output from running the `!help` command. If `!reboot_server` is not listed, verify the above steps have been completed. 
 
@@ -111,11 +113,40 @@ INFLUXDB_PASSWORD=superstrongpassword // The password used to secure the influx 
 INFLUXDB_PORT=8086 // Default port
 ```
 
+Add the relevant parts to `docker-compose.yaml`: 
+```
+  valheim-statistics: 
+    container_name: valheim-server-statistics
+    image: insidus341/valheim-server-statistics:latest
+    restart: always
+    env_file: 
+     - .stats.env
+    depends_on:
+      - "influxdb"
+  
+  influxdb:
+    container_name: valheim-bot-influxdb
+    image: docker.io/influxdb:1.8.4
+    restart: always
+    env_file:
+      - .influxdb.env
+    volumes:
+      - ./data/influxdb:/var/lib/influxdb
+    ports:
+      - 8086:8086
+```
+
+Code for `insidus341/valheim-server-statistics:latest` can be found here: [Github: valheim-statistics](https://github.com/insidus341/valheim-statistics)
+Start the containers with `docker-compose up -d`
+
+You should now be able to add the InfluxDB as a datasource within Grafana.
+
 ## Built With
 
 * [Docker](https://www.docker.com/)
 * [Pyhton3](https://www.python.org/download/releases/3.0/)
 * [Discord](https://discord.com/)
+* [InfluxDB](https://www.influxdata.com/)
 
 ## Authors
 

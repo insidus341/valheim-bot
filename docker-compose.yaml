@@ -6,9 +6,6 @@ services:
     restart: always
     env_file: 
      - .bot.env
-    # networks:
-    #   sites:
-    #     ipv4_address: 172.31.0.2
     volumes:
       - ./discord_admin_users.txt:/app/discord_admin_users.txt
       - /var/run/docker.sock:/var/run/docker.sock
@@ -21,9 +18,6 @@ services:
      - .stats.env
     depends_on:
       - "influxdb"
-    # networks:
-    #   sites:
-    #     ipv4_address: 172.31.0.4
   
   influxdb:
     container_name: valheim-bot-influxdb
@@ -35,14 +29,3 @@ services:
       - ./data/influxdb:/var/lib/influxdb
     ports:
       - 8086:8086
-    # networks:
-    #   sites:
-    #     ipv4_address: 172.31.0.3
-
-# networks:
-#   sites:
-#     driver: bridge
-#     ipam:
-#       config:
-#         - subnet: 172.31.0.0/24
-#           gateway: 172.31.0.1
