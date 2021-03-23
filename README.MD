@@ -20,10 +20,13 @@ The Discord bot listens and responds to the following messages:
 
 Allows specified servers admins to restart the Valheim server with the `!restart_server` command
 
+![Discord Bot Command Output](https://github.com/insidus341/valheim-bot/blob/a1aa377ed698ec6d119730897ddad617e8cfb2a9/documentation/images/discordbot.png)
+
 ### Statistics
 
 Stores statistics about your Valheim server, such as the server availability (is it online?) and the player count. * Statistics can only be gathered from public Valheim servers and the statistics are pulled from Steam. 
 
+![Valheim Server Statistics in Grafana](https://github.com/insidus341/valheim-bot/blob/a1aa377ed698ec6d119730897ddad617e8cfb2a9/documentation/images/grafana.png)
 
 ## Getting Started
 
