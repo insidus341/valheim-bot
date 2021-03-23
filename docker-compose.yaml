@@ -15,7 +15,7 @@ services:
     
   valheim-statistics: 
     container_name: valheim-server-statistics
-    image: insidus341/alheim-server-statistics:latest
+    image: insidus341/valheim-server-statistics:latest
     restart: always
     env_file: 
      - .stats.env
