@@ -1,0 +1,10 @@
+version: "2"
+services: 
+  valheim-bot: 
+    container_name: valheim-server-bot
+    image: insidus341/valheim-server-bot:latest
+    restart: always
+    env_file: 
+     - .bot.env
+    volumes:
+      - ./discord_admin_users.txt:/app/discord_admin_users.txt
