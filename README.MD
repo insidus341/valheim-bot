@@ -54,7 +54,7 @@ You need to create Discord bot with `Send Messages` and `Read Message History` p
 
 The easiest way to install is to clone the Github project, created the required .bot.env file and then run `docker-compose up -d`. The required environmentals are: 
 
-#####.bot.env
+##### .bot.env
 ```
 DISCORD_TOKEN= The Discord totken for your Discord bot
 
@@ -102,7 +102,7 @@ Once the above steps are complete you should see the `!restart_server` command i
 
 Two additional .env files need to be created, `.stats.env` and `.influxdb.env`:
 
-#####.stats.env
+##### .stats.env
 ```
 SERVER_IP=1.1.1.1 // The IP address of your Valheim server
 SERVER_DOMAIN=example.com // The domain name of your Valheim server
@@ -113,7 +113,7 @@ INFLUXDB_DATABASE=valheim-server-statistics // The Influxdb database name
 INFLUXDB_PORT=8086 // Default port
 ```
 
-#####.influxdb.env
+##### .influxdb.env
 ```
 INFLUXDB_DATABASE=valheim-server-statistics // The Influxdb database name
 INFLUXDB_USERNAME=valheim-server-statistics-user // The Influxdb username
