@@ -2,10 +2,10 @@ version: "2"
 services: 
   valheim-bot: 
     container_name: valheim-server-bot
-    image: insidus341/valheim-bot-statistics:latest
+    image: insidus341/valheim-server-bot:latest
     restart: always
     env_file: 
-     - .env
+     - .bot.env
     networks:
       sites:
         ipv4_address: 172.31.0.2
@@ -15,12 +15,10 @@ services:
     
   valheim-statistics: 
     container_name: valheim-server-statistics
-    image: insidus341/valheim-bot-statistics:latest
+    image: insidus341/alheim-server-statistics:latest
     restart: always
     env_file: 
-     - .env
-    environment: 
-      - STATISTICS=1
+     - .stats.env
     networks:
       sites:
         ipv4_address: 172.31.0.4

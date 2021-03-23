@@ -3,16 +3,7 @@ import requests
 import json
 import os
 
-# https://python-valve.readthedocs.io/en/latest/source.html
-
-# with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
-#     info = server.info()
-#     server_name = info['server_name']
-#     player_count = info['player_count']
-    
-#     players = server.players()
-#     players_online = players['players']
-    
+# https://python-valve.readthedocs.io/en/latest/source.html    
 
 def get_server_status(SERVER_ADDRESS):
     url = f"http://api.steampowered.com/ISteamApps/GetServersAtAddress/v0001?addr={SERVER_ADDRESS[0]}:{SERVER_ADDRESS[1]}&format=json"
@@ -38,9 +29,6 @@ def get_players(SERVER_ADDRESS):
         with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
             info = server.info()
             player_count = info['player_count']
-
-            # players = server.players()
-            # players_online = players['players']
 
             return player_count
     
