@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    docker
-  }
+  agent = docker
   
   environment {
     DISCORD_TOKEN = credentials('DISCORD_TOKEN')
