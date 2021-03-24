@@ -5,8 +5,8 @@ pipeline {
   
   environment {
     DISCORD_TOKEN = credentials('DISCORD_TOKEN')
-    SERVER_IP     = 0.0.0.0
-    SERVER_PORT   = 2456
+    SERVER_IP     = '0.0.0.0'
+    SERVER_PORT   = '2456'
   }
   
   stages{
