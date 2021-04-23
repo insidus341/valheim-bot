@@ -129,7 +129,7 @@ class DiscordBot(discord.Client):
         return message
 
     def _valheim_plus(self):
-        message = "Valheim Plus can be installed from here: https://github.com/nxPublic/ValheimPlus/releases/latest/ \n\n"
+        message = "Valheim Plus can be installed from here: https://github.com/nxPublic/ValheimPlus/releases/ \n\n"
         # message = message + "Locate your game folder: go into steam and \nRight click the valheim game in your steam library \n\"Go to Manage\" -> \"Browse local files\"\nUnzip the contents of WindowsClient.zip into the Valheim root folder\n\n"
         # message = message + "In the game directory, browse to /BepInEx/config and edit valheim_plus.cfg \nChange `enforceMod=true` to `enforceMod=false`."
         return message 
